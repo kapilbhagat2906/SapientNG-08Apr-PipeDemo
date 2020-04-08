@@ -1,0 +1,7 @@
+<div class="to-do-list">
+    <form novalidate [formGroup]="sortForm" class="to-do-list_form">
+        <input type="radio" name="sortOrder" formControlName="sortOrder" value="ASC"/> Sort Ascending
+        <input type="radio" name="sortOrder" formControlName="sortOrder" value="DESC"/> Sort Descending
+    </form>
+    <app-to-do *ngFor="let toDo of toDoObservable | async | sort: sortOrder" [toDo]="toDo" (updateToDo)="updateToDo($event)"></app-to-do>
+</div>
